@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 25, 2017, 9:57:42 PM
+    Author     : User
+*/
+body {
+    font-size: 16px;
+    background-color: #9EDFDE;
+}
+.font-siracha {
+    font-family: 'Sriracha', cursive;
+}
+.font-itim {
+    font-family: 'Itim', cursive;
+}
+.bg-orange {
+    background-color: #FD9B64;
+}
+.bg-yellow {
+    background-color: #FCD868;
+}
+.bg-white {
+    background-color: #FFFFFF;
+}
+.menu-list {
+    font-size: 1.3em;
+}
+.menu-list img {
+    float: right;
+}
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+a:active {
+    color: #000;
+    text-decoration: none;
+}

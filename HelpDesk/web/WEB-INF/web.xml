@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ShowListProblemServlet</servlet-name>
+        <servlet-class>Servlet.ListProblemServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStatus</servlet-name>
+        <servlet-class>Servlet.ListStatusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportProblemServlet</servlet-name>
+        <servlet-class>Servlet.ReportProblemServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MenuServlet</servlet-name>
+        <servlet-class>Servlet.MenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowListProblemServlet</servlet-name>
+        <url-pattern>/ShowListProblemServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStatus</servlet-name>
+        <url-pattern>/ListStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportProblemServlet</servlet-name>
+        <url-pattern>/ReportProblemServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenuServlet</servlet-name>
+        <url-pattern>/MenuServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
