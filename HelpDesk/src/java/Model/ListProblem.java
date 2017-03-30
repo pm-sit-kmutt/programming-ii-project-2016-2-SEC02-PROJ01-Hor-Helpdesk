@@ -44,7 +44,7 @@ public class ListProblem {
                                 + "FROM User "
                                 + "INNER JOIN Dormitory ON User.userId = Dormitory.User_userId "
                                 + "INNER JOIN Room ON Dormitory.dormId = Room.Dormitory_dormId "
-                                + "INNER JOIN Cause ON Room.Dormitory_dormId = Cause.Room_Dormitory_dormId "
+                                + "INNER JOIN Cause ON Room.roomId = Cause.Room_roomId "
                                 + "WHERE userId = ? "
                                 + "ORDER BY Cause.Room_roomId, Cause.Problem_problemId");
             }

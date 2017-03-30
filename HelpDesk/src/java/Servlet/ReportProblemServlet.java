@@ -32,7 +32,7 @@ public class ReportProblemServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        ReportProblem reportP = Model.ReportProblem.getReportProblem(1);
+        ReportProblem reportP = Model.ReportProblem.getReportProblem(2);
         String target = "/ReportProblem.jsp";
         request.setAttribute("message", reportP);
         getServletContext().getRequestDispatcher(target).forward(request, response);

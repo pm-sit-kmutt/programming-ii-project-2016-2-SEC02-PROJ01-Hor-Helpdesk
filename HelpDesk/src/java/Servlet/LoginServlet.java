@@ -5,19 +5,22 @@
  */
 package Servlet;
 
-import Model.ListProblem;
+import Model.ConnectionBuilder;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author User
  */
-public class ListProblemServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +34,7 @@ public class ListProblemServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        ListProblem listP = Model.ListProblem.getShowListProblem(2);
-        String target = "/ShowListProblem.jsp";
-        request.setAttribute("message", listP);
-        getServletContext().getRequestDispatcher(target).forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +49,23 @@ public class ListProblemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        
+        HttpSession s = request.getSession(true);
+        User u = new User();
+        s.setAttribute("userId", u);
+        String target = null;
+        
+        u = (User)s.getAttribute("userId");
+
+        if(u.getUserId() == 0 || u.getUserId() == -1){
+            target = "/Login.jsp";
+        }
+        else {
+            target = "/Menu.jsp";
+            
+        }
+        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
     /**
@@ -64,7 +79,36 @@ public class ListProblemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        try {
+            HttpSession s = request.getSession();
+            Connection connect = ConnectionBuilder.getConnection();
+            PreparedStatement ps = connect.prepareStatement("SELECT userId FROM User WHERE userEmail = ? AND password = ?");
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet result = ps.executeQuery();
+            String target = null;
+            if(!result.isBeforeFirst()){
+                User u = new User(-1);
+                s.setAttribute("userId", u);
+                target = "/Login.jsp";
+            }
+            else {
+                while(result.next()){
+                    User u = new User(result.getLong("userId"));
+                    s.setAttribute("userId", u);
+                }
+                target = "/Menu.jsp";
+                
+            }
+            getServletContext().getRequestDispatcher(target).forward(request, response);
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

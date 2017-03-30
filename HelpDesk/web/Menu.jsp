@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Itim|Sriracha" rel="stylesheet">
     </head>
     <body>
-        <% long userId = 1; %>
+        <%! long userId = 1; %>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

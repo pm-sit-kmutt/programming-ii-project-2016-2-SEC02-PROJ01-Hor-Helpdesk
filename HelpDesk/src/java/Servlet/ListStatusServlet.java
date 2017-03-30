@@ -32,7 +32,7 @@ public class ListStatusServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        ListProblem listS = Model.ListProblem.getShowListProblem(2);
+        ListProblem listS = Model.ListProblem.getShowListProblem(1);
         String target = "/ShowListStatus.jsp";
         request.setAttribute("message", listS);
         getServletContext().getRequestDispatcher(target).forward(request, response);
