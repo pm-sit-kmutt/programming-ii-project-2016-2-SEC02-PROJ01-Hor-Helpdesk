@@ -46,8 +46,9 @@ public class ReportProblem extends ProblemName{
             e.printStackTrace();
         }
         catch(Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
+        
         list = new ListProblem(userId).getList();
     }   
     

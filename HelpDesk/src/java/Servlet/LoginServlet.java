@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
             target = "/Login.jsp";
         }
         else {
-            target = "/Menu.jsp";
+            target = "/MenuServlet";
             
         }
         getServletContext().getRequestDispatcher(target).forward(request, response);
@@ -101,7 +101,7 @@ public class LoginServlet extends HttpServlet {
                     User u = new User(result.getLong("userId"));
                     s.setAttribute("userId", u);
                 }
-                target = "/Menu.jsp";
+                target = "/MenuServlet";
                 
             }
             getServletContext().getRequestDispatcher(target).forward(request, response);

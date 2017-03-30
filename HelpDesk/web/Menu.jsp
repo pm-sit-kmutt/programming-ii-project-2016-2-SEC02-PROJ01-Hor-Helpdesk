@@ -26,7 +26,7 @@
                 <a href="#" target="_self">
                     <div class="list-group-item col-md-12">
                         แสดงรายการแจ้งปัญหา
-                        <img src="assets/img/arrows.png" alt="icon">
+                        <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>
             </div>

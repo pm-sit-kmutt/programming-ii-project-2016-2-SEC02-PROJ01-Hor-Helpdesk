@@ -60,7 +60,7 @@ public class ListProblem {
             e.printStackTrace();
         }
         catch(Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
     

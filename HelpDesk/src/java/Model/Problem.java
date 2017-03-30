@@ -37,11 +37,11 @@ public class Problem {
                 statusId = result.getInt("statusId");
             }
         }
-        catch(SQLException e) {
+        catch(SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         catch(Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
