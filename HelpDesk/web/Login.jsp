@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row">
-                <form method="post" action="/LoginServlet" class="form-horizontal">
+                <form method="post" action="/Login" class="form-horizontal">
                     <div class="form-group">
                         <label class="col-md-1 control-label col-md-offset-4">E-mail :</label>
                         <div class="col-md-3 input-group">
@@ -54,7 +54,7 @@
         </div>
         <script>
             $( document ).ready(function() {
-                <% User user = (User) session.getAttribute("userId");
+                <% User user = (User) session.getAttribute("user");
                 if(user.getUserId() == -1){ %>
                     swal("ERROR", "กรุณากรอก E-mail และ Password ให้ถูกต้อง", "error");
                 <% } %>

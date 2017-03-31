@@ -15,16 +15,15 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
     <body>
-        <% /*User user = (User) session.getAttribute("userId");
-        long userId = user.getUserId();
-        String userStatus = user.getStatus(); */%>
+        <% User user = (User)session.getAttribute("user");
+        String userStatus = user.getStatus(); %>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img class="navbar-brand logo-padding" src="assets/img/logo.png" alt="logo">
                 </div>
                 <div class="navbar-left">
-                    <p class="navbar-text navbar-left">Signed in as </p>
+                    <p class="navbar-text navbar-left">Signed in as <%= userStatus.toUpperCase() %></p>
                 </div>
                 <div class="navbar-right">
                     <a href="/Logout" target="_self">
@@ -40,13 +39,15 @@
                 </div>
             </div>
             <div class="row list-group menu-list">
-                <a href="#" target="_self">
-                    <div class="list-group-item col-md-12">
-                        รายงานปัญหา
-                        <img src="assets/img/arrow.png" alt="icon">
-                    </div>
-                </a>
-                <a href="#" target="_self">
+                <% if( userStatus.equals("student")) { %>
+                    <a href="#" target="_self">
+                        <div class="list-group-item col-md-12">
+                            รายงานปัญหา
+                            <img src="assets/img/arrow.png" alt="icon">
+                        </div>
+                    </a>
+                <% } %>
+                <a href="/ShowListProblem" target="_self">
                     <div class="list-group-item col-md-12">
                         แสดงรายการแจ้งปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
@@ -58,18 +59,22 @@
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>
-                <a href="#" target="_self">
-                    <div class="list-group-item col-md-12">
-                        เปลี่ยนแปลงสถานะปัญหา
-                        <img src="assets/img/arrow.png" alt="icon">
-                    </div>
-                </a>
-                <a href="#" target="_self">
-                    <div class="list-group-item col-md-12">
-                        สรุปปัญหา
-                        <img src="assets/img/arrow.png" alt="icon">
-                    </div>
-                </a>
+                <% if( userStatus.equals("admin")) { %>
+                    <a href="#" target="_self">
+                        <div class="list-group-item col-md-12">
+                            เปลี่ยนแปลงสถานะปัญหา
+                            <img src="assets/img/arrow.png" alt="icon">
+                        </div>
+                    </a>
+                <% }
+                if( userStatus.equals("admin")) { %>
+                    <a href="#" target="_self">
+                        <div class="list-group-item col-md-12">
+                            สรุปปัญหา
+                            <img src="assets/img/arrow.png" alt="icon">
+                        </div>
+                    </a>
+                <% } %>
                 <a href="#" target="_self">
                     <div class="list-group-item col-md-12">
                         ประกาศ

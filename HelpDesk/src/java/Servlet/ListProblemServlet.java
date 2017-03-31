@@ -6,12 +6,14 @@
 package Servlet;
 
 import Model.ListProblem;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,8 +33,10 @@ public class ListProblemServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        ListProblem listP = Model.ListProblem.getShowListProblem(2);
+        
+        HttpSession s = request.getSession(true);
+        User user = (User)s.getAttribute("user");
+        ListProblem listP = Model.ListProblem.getShowListProblem(user.getUserId());
         String target = "/ShowListProblem.jsp";
         request.setAttribute("message", listP);
         getServletContext().getRequestDispatcher(target).forward(request, response);

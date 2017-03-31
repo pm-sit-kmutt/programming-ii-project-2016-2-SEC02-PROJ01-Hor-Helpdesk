@@ -14,11 +14,6 @@ body {
 .top-space {
     margin-top: 4.5em;
 }
-.password {
-    background-image: url("../img/key.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
 .btn-login {
     background-color: rgb(153,153,125);
     color: white;

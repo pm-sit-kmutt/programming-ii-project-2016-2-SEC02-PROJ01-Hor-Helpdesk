@@ -53,17 +53,18 @@ public class LoginServlet extends HttpServlet {
         
         HttpSession s = request.getSession(true);
         User u = new User();
-        s.setAttribute("userId", u);
+        s.setAttribute("user", u);
         String target = null;
         
-        u = (User)s.getAttribute("userId");
-
+        u = (User)s.getAttribute("user");
+        
         if(u.getUserId() == 0 || u.getUserId() == -1){
             target = "/Login.jsp";
         }
         else {
             target = "/Menu";
         }
+        
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
@@ -82,6 +83,7 @@ public class LoginServlet extends HttpServlet {
         
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
         try {
             HttpSession s = request.getSession();
             Connection connect = ConnectionBuilder.getConnection();
@@ -90,18 +92,20 @@ public class LoginServlet extends HttpServlet {
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
             String target = null;
+            
             if(!result.isBeforeFirst()){
                 User u = new User(-1);
-                s.setAttribute("userId", u);
+                s.setAttribute("user", u);
                 target = "/Login.jsp";
             }
             else {
                 while(result.next()){
                     User u = new User(result.getLong("userId"));
-                    s.setAttribute("userId", u);
+                    s.setAttribute("user", u);
                 }
                 target = "/Menu";
             }
+            
             getServletContext().getRequestDispatcher(target).forward(request, response);
         }
         catch(Exception e) {

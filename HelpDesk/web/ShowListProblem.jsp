@@ -69,8 +69,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-right">
-                    <a href="#" target="_self">
-                        <button class="btn btn-lg btn-default" id="back">กลับสู่เมนูหลัก</button>
+                    <a href="/Menu" target="_self">
+                        <button class="btn btn-lg btn-login" id="back">กลับสู่เมนูหลัก</button>
                     </a>
                 </div>
             </div>
