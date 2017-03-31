@@ -3,21 +3,16 @@
     Author     : User
 */
 /* General */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
 body {
     font-size: 16px;
-    font-family: 'Sriracha', cursive;
-}
-.font-itim {
-    font-family: 'Itim', cursive;
+    font-family: 'Kanit', sans-serif;
 }
 /* Login page */
 .top-space {
     margin-top: 4.5em;
-}
-.email {
-    background-image: url("../img/letter.png");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .password {
     background-image: url("../img/key.png");
@@ -29,8 +24,11 @@ body {
     color: white;
 }
 /* Menu page */
-.menu-list {
-    font-size: 1.3em;
+.logo-padding {
+    padding: 1px 15px;
+}
+#logout {
+    margin-right: 10px;
 }
 .menu-list img {
     float: right;

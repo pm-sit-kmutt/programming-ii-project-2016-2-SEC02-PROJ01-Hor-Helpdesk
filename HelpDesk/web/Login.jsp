@@ -15,14 +15,13 @@
         <script src="assets/js/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Itim|Sriracha" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
     </head>
     <body>
         <div class="container">
             <div class="row top-space">
                 <div class="col-md-offset-4 col-md-4 text-center">
-                    <img src="assets/img/logo.png">
+                    <img src="assets/img/logo.png" alt="logo">
                 </div>
             </div>
             <div class="row">
@@ -30,14 +29,18 @@
                     <div class="form-group">
                         <label class="col-md-1 control-label col-md-offset-4">E-mail :</label>
                         <div class="col-md-3 input-group">
-                            <div class="input-group-addon email"></div>
+                            <div class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </div>
                             <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label col-md-offset-3 text-right">Password :</label>
                         <div class="col-md-3 input-group">
-                            <div class="input-group-addon password"></div>
+                            <div class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </div>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                         </div>
                     </div>
@@ -51,10 +54,10 @@
         </div>
         <script>
             $( document ).ready(function() {
-                <%User userId = (User) session.getAttribute("userId");
-                if(userId.getUserId() == -1){%>
+                <% User user = (User) session.getAttribute("userId");
+                if(user.getUserId() == -1){ %>
                     swal("ERROR", "กรุณากรอก E-mail และ Password ให้ถูกต้อง", "error");
-                <%}%>
+                <% } %>
             });
         </script>
     </body>
