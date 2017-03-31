@@ -27,7 +27,7 @@
                     <p class="navbar-text navbar-left">Signed in as </p>
                 </div>
                 <div class="navbar-right">
-                    <a href="#" target="_self">
+                    <a href="/Logout" target="_self">
                         <button type="button" class="btn btn-default navbar-btn" id="logout">Logout</button>
                     </a>
                 </div>
@@ -61,6 +61,18 @@
                 <a href="#" target="_self">
                     <div class="list-group-item col-md-12">
                         เปลี่ยนแปลงสถานะปัญหา
+                        <img src="assets/img/arrow.png" alt="icon">
+                    </div>
+                </a>
+                <a href="#" target="_self">
+                    <div class="list-group-item col-md-12">
+                        สรุปปัญหา
+                        <img src="assets/img/arrow.png" alt="icon">
+                    </div>
+                </a>
+                <a href="#" target="_self">
+                    <div class="list-group-item col-md-12">
+                        ประกาศ
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>

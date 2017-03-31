@@ -5,7 +5,7 @@
         <servlet-class>Servlet.ListProblemServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListStatus</servlet-name>
+        <servlet-name>ListStatusServlet</servlet-name>
         <servlet-class>Servlet.ListStatusServlet</servlet-class>
     </servlet>
     <servlet>
@@ -20,25 +20,33 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Servlet.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>Servlet.LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
-        <url-pattern>/ShowListProblemServlet</url-pattern>
+        <url-pattern>/ShowListProblem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListStatus</servlet-name>
-        <url-pattern>/ListStatus</url-pattern>
+        <servlet-name>ListStatusServlet</servlet-name>
+        <url-pattern>/ShowListStatus</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ReportProblemServlet</servlet-name>
-        <url-pattern>/ReportProblemServlet</url-pattern>
+        <url-pattern>/ReportProblem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MenuServlet</servlet-name>
-        <url-pattern>/MenuServlet</url-pattern>
+        <url-pattern>/Menu</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
