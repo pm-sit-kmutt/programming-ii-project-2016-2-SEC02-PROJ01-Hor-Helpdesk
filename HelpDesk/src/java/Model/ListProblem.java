@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 public class ListProblem {
     private long userId;
-    private String name;
-    private String surname;
     private String status;
     private ArrayList<Problem> list;
 
@@ -22,8 +20,6 @@ public class ListProblem {
             ps.setLong(1,userId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
-                name = result.getString("userFirstName");
-                surname = result.getString("userLastName");
                 status = result.getString("userType");
             }
             ps.close();
@@ -69,18 +65,6 @@ public class ListProblem {
     }
     public void setUserId(long userId) {
         this.userId = userId;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getSurname() {
-        return surname;
-    }
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
     public String getStatus() {
         return status;

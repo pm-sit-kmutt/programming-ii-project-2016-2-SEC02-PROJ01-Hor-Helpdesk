@@ -5,7 +5,6 @@
  */
 package Servlet;
 
-import Model.ListProblem;
 import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author User
  */
-public class ListProblemServlet extends HttpServlet {
+public class HelpServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,11 +34,7 @@ public class ListProblemServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession s = request.getSession(true);
-        User user = (User)s.getAttribute("user");
-        ListProblem listP = Model.ListProblem.getShowListProblem(user.getUserId());
-        String target = "/ShowListProblem.jsp";
-        
-        request.setAttribute("message", listP);
+        String target = "/Help.jsp";
         
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

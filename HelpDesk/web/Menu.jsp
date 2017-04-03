@@ -16,16 +16,23 @@
     </head>
     <body>
         <% User user = (User)session.getAttribute("user");
-        String userStatus = user.getStatus(); %>
+        String userStatus = user.getStatus();
+        String userName = user.getName(); %>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img class="navbar-brand logo-padding" src="assets/img/logo.png" alt="logo">
                 </div>
                 <div class="navbar-left">
-                    <p class="navbar-text navbar-left">Signed in as <%= userStatus.toUpperCase() %></p>
+                    <p class="navbar-text navbar-left"><%= userName.toUpperCase() %> sign in as <%= userStatus.toUpperCase() %></p>
                 </div>
                 <div class="navbar-right">
+                    <a href="/Help" target="_blank">
+                        <button type="button" class="btn btn-default navbar-btn" id="help">
+                            <i class="fa fa-question-circle"></i>
+                            Help
+                        </button>
+                    </a>
                     <a href="/Logout" target="_self">
                         <button type="button" class="btn btn-default navbar-btn" id="logout">Logout</button>
                     </a>
@@ -53,9 +60,9 @@
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>
-                <a href="#" target="_self">
+                <a href="/ShowListStatus" target="_self">
                     <div class="list-group-item col-md-12">
-                        แสดงสถานะแจ้งปัญหา
+                        แสดงสถานะปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>

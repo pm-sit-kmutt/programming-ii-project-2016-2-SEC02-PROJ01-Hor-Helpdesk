@@ -5,6 +5,7 @@ import java.sql.*;
 public class User {
     private long userId = 0;
     private String status;
+    private String name;
     
     public User() {
     }
@@ -13,11 +14,12 @@ public class User {
         if(userId > 0){
             try {
                 Connection connect = ConnectionBuilder.getConnection();
-                PreparedStatement ps = connect.prepareStatement("SELECT userType FROM User WHERE userId = ?");
+                PreparedStatement ps = connect.prepareStatement("SELECT userFirstName, userType FROM User WHERE userId = ?");
                 ps.setLong(1, userId);
                 ResultSet result = ps.executeQuery();
                 while(result.next()){
                     status = result.getString("userType");
+                    name = result.getString("userFirstName");
                 }
                 ps.close();
                 connect.close();
@@ -43,9 +45,16 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     @Override
     public String toString() {
-        return "User{" + "userId=" + userId + ", status=" + status + '}';
+        return "User{" + "userId=" + userId + ", status=" + status + ", name=" + name + '}';
     }
 
 }

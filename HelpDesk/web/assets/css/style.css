@@ -10,6 +10,9 @@ body {
     font-size: 16px;
     font-family: 'Kanit', sans-serif;
 }
+.navbar {
+    margin-bottom: 0;
+}
 /* Login page */
 .top-space {
     margin-top: 4.5em;
@@ -31,4 +34,13 @@ body {
 a:link, a:active, a:visited, a:hover {
     color: #000;
     text-decoration: none;
+}
+/* List Problem and Status page */
+thead tr {
+    background-color: rgb(153,153,125);
+    color: white;
+}
+/* List Status page */
+.status {
+    width: 130px;
 }

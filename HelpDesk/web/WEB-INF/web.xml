@@ -24,6 +24,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HelpServlet</servlet-name>
+        <servlet-class>Servlet.HelpServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelpServlet</servlet-name>
+        <url-pattern>/Help</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
