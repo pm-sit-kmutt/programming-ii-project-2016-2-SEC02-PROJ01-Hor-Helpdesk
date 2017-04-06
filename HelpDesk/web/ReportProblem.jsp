@@ -37,7 +37,7 @@
                             <th>report</th>
                         </tr>
                     </thead>
-                    <form method="post" action="/ReportProblem" id="form" onsubmit="return confirmReport()"></form>
+                    <form method="post" action="/Helpdesk/ReportProblem" id="form" onsubmit="return confirmReport()"></form>
                     <tbody>
                         <% for(int i = 0; i< reportP.getProblemName().size(); i++) { 
                             boolean have = false; 
@@ -81,7 +81,7 @@
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Yes",
                     cancelButtonText: "No",
-                    closeOnConfirm: true,
+                    closeOnConfirm: false,
                     closeOnCancel: false
                 },
                 function(isConfirm){

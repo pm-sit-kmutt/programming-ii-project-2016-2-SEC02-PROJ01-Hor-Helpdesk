@@ -28,6 +28,10 @@
         <servlet-name>HelpServlet</servlet-name>
         <servlet-class>Servlet.HelpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SummaryServlet</servlet-name>
+        <servlet-class>Servlet.SummaryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -56,9 +60,16 @@
         <servlet-name>HelpServlet</servlet-name>
         <url-pattern>/Help</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SummaryServlet</servlet-name>
+        <url-pattern>/Summary</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

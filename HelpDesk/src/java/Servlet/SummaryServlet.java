@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
+import Model.Summary;
 import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,21 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author User
- */
-public class LogoutServlet extends HttpServlet {
+public class SummaryServlet extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession s = request.getSession(true);
-        User u = new User();
-        s.setAttribute("userId", u);
-        String target = "/Helpdesk/Login";
-
-        response.sendRedirect(target);
+        User user = (User)s.getAttribute("user");
+        Summary summary = Model.Summary.getSummary(user.getUserId());
+        String target = "/ShowListStatus.jsp";
+        
+        request.setAttribute("message", summary);
+        
+        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

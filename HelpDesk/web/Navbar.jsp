@@ -13,13 +13,13 @@
             <p class="navbar-text navbar-left"><%= userName.toUpperCase() %> sign in as <%= userStatus.toUpperCase() %></p>
         </div>
         <div class="navbar-right">
-            <a href="/Help" target="_blank">
+            <a href="/Helpdesk/Help" target="_blank">
                 <button type="button" class="btn btn-default navbar-btn" id="help">
                     <i class="fa fa-question-circle"></i>
                     Help
                 </button>
             </a>
-            <a href="/Logout" target="_self">
+            <a href="/Helpdesk/Logout" target="_self">
                 <button type="button" class="btn btn-default navbar-btn" id="logout">Logout</button>
             </a>
         </div>

@@ -26,12 +26,12 @@ public class LoginServlet extends HttpServlet {
         
         if(u.getUserId() == 0 || u.getUserId() == -1){
             target = "/Login.jsp";
+            getServletContext().getRequestDispatcher(target).forward(request, response);
         }
         else {
-            target = "/Menu";
+            target = "/Helpdesk/Menu";
+            response.sendRedirect(target);
         }
-        
-        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -54,16 +54,16 @@ public class LoginServlet extends HttpServlet {
                 User u = new User(-1);
                 s.setAttribute("user", u);
                 target = "/Login.jsp";
+                getServletContext().getRequestDispatcher(target).forward(request, response);
             }
             else {
                 while(result.next()){
                     User u = new User(result.getLong("userId"));
                     s.setAttribute("user", u);
                 }
-                target = "/Menu";
+                target = "/Helpdesk/Menu";
+                response.sendRedirect(target);
             }
-            
-            getServletContext().getRequestDispatcher(target).forward(request, response);
         }
         catch(Exception e) {
             System.out.println(e.getMessage());

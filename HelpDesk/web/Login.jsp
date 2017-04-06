@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row">
-                <form method="post" action="/Login" class="form-horizontal">
+                <form method="post" action="/Helpdesk/Login" class="form-horizontal">
                     <div class="form-group">
                         <label class="col-md-1 control-label col-md-offset-4">E-mail :</label>
                         <div class="col-md-3 input-group">

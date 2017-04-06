@@ -27,20 +27,20 @@
             </div>
             <div class="row list-group menu-list">
                 <% if( userStatus.equals("student")) { %>
-                    <a href="/ReportProblem" target="_self">
+                    <a href="/Helpdesk/ReportProblem" target="_self">
                         <div class="list-group-item col-md-12">
                             รายงานปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
                         </div>
                     </a>
                 <% } %>
-                <a href="/ShowListProblem" target="_self">
+                <a href="/Helpdesk/ShowListProblem" target="_self">
                     <div class="list-group-item col-md-12">
                         แสดงรายการแจ้งปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>
-                <a href="/ShowListStatus" target="_self">
+                <a href="/Helpdesk/ShowListStatus" target="_self">
                     <div class="list-group-item col-md-12">
                         แสดงสถานะปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
