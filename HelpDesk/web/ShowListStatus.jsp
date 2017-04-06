@@ -20,27 +20,7 @@
         String userStatus = user.getStatus();
         String userName = user.getName();
         ListProblem listS = (ListProblem)request.getAttribute("message"); %>
-        <nav class="navbar navbar-default no-margin-buttom">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <img class="navbar-brand logo-padding" src="assets/img/logo.png" alt="logo">
-                </div>
-                <div class="navbar-left">
-                    <p class="navbar-text navbar-left"><%= userName.toUpperCase() %> sign in as <%= userStatus.toUpperCase() %></p>
-                </div>
-                <div class="navbar-right">
-                    <a href="/Help" target="_blank">
-                        <button type="button" class="btn btn-default navbar-btn" id="help">
-                            <i class="fa fa-question-circle"></i>
-                            Help
-                        </button>
-                    </a>
-                    <a href="/Logout" target="_self">
-                        <button type="button" class="btn btn-default navbar-btn" id="logout">Logout</button>
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <%@include file="Navbar.jsp" %>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -59,8 +39,8 @@
                             <th class="text-center">status</th>
                         </tr>
                     </thead>
-                    <% for(int i = 0; i < listS.getList().size(); i++) { %>
-                        <tbody>
+                    <tbody>
+                        <% for(int i = 0; i < listS.getList().size(); i++) { %>
                             <tr>
                                 <td class="text-center"><%= (i+1) %></td>
                                 <td><%= listS.getList().get(i).getName() %></td>
@@ -78,17 +58,11 @@
                                     <% } %>
                                 </td>
                             </tr>
-                        </tbody>
-                    <% } %>
+                        <% } %>
+                    </tbody>
                 </table>
             </div>
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <a href="/Menu" target="_self">
-                        <button class="btn btn-lg btn-login" id="back">กลับสู่เมนูหลัก</button>
-                    </a>
-                </div>
-            </div>
+            <%@include file="BackButton.jsp" %>
         </div>
     </body>
 </html>

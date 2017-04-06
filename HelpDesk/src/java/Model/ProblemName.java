@@ -4,9 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ProblemName {
-     private ArrayList<String> problemName;
+    private ArrayList<String> problemName;
      
-     public ProblemName(){
+    public ProblemName(){
         problemName = new ArrayList<String>();
         try {
             Connection connect = ConnectionBuilder.getConnection();
@@ -24,15 +24,13 @@ public class ProblemName {
         catch(Exception e) {
             e.printStackTrace();
         }
-     }
+    }
 
     public ArrayList<String> getProblemName() {
         return problemName;
     }
-
     public void setProblemName(ArrayList<String> problemName) {
         this.problemName = problemName;
     }
          
 }   
-

@@ -52,12 +52,18 @@
                 </form>
             </div>
         </div>
-        <script>
-            $( document ).ready(function() {
+        <script type="text/javascript">
+            $(document).ready(function () {
                 <% User user = (User) session.getAttribute("user");
-                if(user.getUserId() == -1){ %>
-                    swal("ERROR", "กรุณากรอก E-mail และ Password ให้ถูกต้อง", "error");
-                <% } %>
+                if (user.getUserId() == -1) { %>
+                    swal({
+                        title: "ERROR",
+                        text: "กรุณากรอก E-mail และ Password ให้ถูกต้อง",
+                        type: "error",
+                        confirmButtonText: "OK"
+                    });
+                        
+                <% }%>
             });
         </script>
     </body>

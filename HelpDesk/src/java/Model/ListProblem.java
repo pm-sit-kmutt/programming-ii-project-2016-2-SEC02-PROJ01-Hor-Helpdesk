@@ -16,7 +16,7 @@ public class ListProblem {
         this.userId = userId;
         try {
             Connection connect = ConnectionBuilder.getConnection();
-            PreparedStatement ps = connect.prepareStatement("SELECT userType, userFirstName, userLastName FROM User WHERE userId = ?");
+            PreparedStatement ps = connect.prepareStatement("SELECT userType FROM User WHERE userId = ?");
             ps.setLong(1,userId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
