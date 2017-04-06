@@ -28,6 +28,10 @@
         <servlet-name>HelpServlet</servlet-name>
         <servlet-class>Servlet.HelpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStatus1Servlet</servlet-name>
+        <servlet-class>Servlet.UpdateStatus1Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>HelpServlet</servlet-name>
         <url-pattern>/Help</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStatus1Servlet</servlet-name>
+        <url-pattern>/UpdateStatus1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

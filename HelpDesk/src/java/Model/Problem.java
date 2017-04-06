@@ -86,6 +86,33 @@ public class Problem {
     }
     public void setStatusId(int statusId) {
         this.statusId = statusId;
+        try {
+            Connection connect = ConnectionBuilder.getConnection();
+            PreparedStatement ps;
+            ps = connect.prepareStatement(
+                    "UPDATE Cause "
+                    + "SET status_statusId = ? "
+                    + "WHERE causeId = ?");
+            ps.setInt(1, statusId);
+            ps.setInt(2, causeId);
+            int record = ps.executeUpdate();
+            ps.close();            
+            ps = connect.prepareStatement(
+                    "SELECT statusName "
+                    + "FROM status "
+                    + "WHERE statusId = ?");
+            ps.setInt(1,statusId);
+            ResultSet result = ps.executeQuery();
+            while(result.next()){
+               status =  result.getString("statusName");
+            }
+            ps.close();
+            connect.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public String getStatus() {
         return status;
