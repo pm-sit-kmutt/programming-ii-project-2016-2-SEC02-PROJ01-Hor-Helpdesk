@@ -36,6 +36,10 @@
         <servlet-name>UpdateStatus1Servlet</servlet-name>
         <servlet-class>Servlet.UpdateStatus1Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStatus2Servlet</servlet-name>
+        <servlet-class>Servlet.UpdateStatus2Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>UpdateStatus1Servlet</servlet-name>
         <url-pattern>/UpdateStatus1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStatus2Servlet</servlet-name>
+        <url-pattern>/UpdateStatus2Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

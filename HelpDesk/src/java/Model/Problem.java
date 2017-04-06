@@ -123,7 +123,13 @@ public class Problem {
     public int getRoom() {
         return roomNo;
     }
+    
     public void setRoom(int roomNo) {
         this.roomNo = roomNo;
+    }
+    
+    public static Problem getProblem(int causeId, int roomNo){
+        Problem p = new Problem(causeId,roomNo);
+        return p;
     }
 }
