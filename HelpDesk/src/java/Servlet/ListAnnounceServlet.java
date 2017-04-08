@@ -35,10 +35,10 @@ public class ListAnnounceServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        ListAnnounce announce = Model.ListAnnounce.getListAnnounce(1);
+        ListAnnounce an = Model.ListAnnounce.getListAnnounce(1);
         String target = "/AnnounceMenu.jsp";
         
-        request.setAttribute("message", announce);
+        request.setAttribute("message", an);
         
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

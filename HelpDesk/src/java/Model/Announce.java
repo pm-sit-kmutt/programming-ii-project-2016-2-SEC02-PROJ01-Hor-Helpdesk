@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.sql.*;
 
 
-/**
- *
- * @author l3as
- */
 public class Announce {
     private int AnnounceId;
     private String AnnounceTitle;
@@ -45,7 +36,7 @@ public class Announce {
         }
     }
 
-    public int getAnnounceId() {
+    public int ListAnnounce() {
         return AnnounceId;
     }
 
@@ -77,7 +68,7 @@ public class Announce {
         this.AnnounceTime = AnnounceTime;
     }
     public static  Announce getAnnounce(int AnnounceId){
-        Announce an= new Announce(AnnounceId);
+        Announce an = new Announce(AnnounceId);
         return an;
     }
 }
