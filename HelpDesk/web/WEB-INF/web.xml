@@ -90,7 +90,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateStatus2Servlet</servlet-name>
-        <url-pattern>/UpdateStatus2Servlet</url-pattern>
+        <url-pattern>/UpdateStatus2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListAnnounceServlet</servlet-name>

@@ -26,7 +26,7 @@ public class ListProblem {
             ps.close();
             if(status.equalsIgnoreCase("student")){
                 ps = connect.prepareStatement(
-                        "SELECT User.userId, Room.roomNo, Cause.causeId, Cause.Problem_problemId "
+                        "SELECT User.userId, Cause.causeId, Cause.Problem_problemId "
                                 + "FROM User "
                                 + "INNER JOIN Renter ON User.userId = Renter.User_userId "
                                 + "INNER JOIN Renter_has_Room ON Renter.renterId = Renter_has_Room.Renter_renterId "
@@ -37,7 +37,7 @@ public class ListProblem {
             }
             else {
                 ps = connect.prepareStatement(
-                        "SELECT User.userId, Dormitory.dormId, Room.roomNo, Cause.causeId, Cause.Room_roomId, Cause.Problem_problemId "
+                        "SELECT User.userId, Cause.causeId, Cause.Room_roomId, Cause.Problem_problemId "
                                 + "FROM User "
                                 + "INNER JOIN Dormitory ON User.userId = Dormitory.User_userId "
                                 + "INNER JOIN Room ON Dormitory.dormId = Room.Dormitory_dormId "
@@ -48,7 +48,7 @@ public class ListProblem {
             ps.setLong(1,userId);
             result = ps.executeQuery();
             while(result.next()){
-                list.add(new Problem(result.getInt("causeId"), result.getInt("roomNo")));
+                list.add(new Problem(result.getInt("causeId")));
             }
             ps.close();
             connect.close();

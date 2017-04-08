@@ -44,3 +44,7 @@ thead tr {
 .status {
     width: 130px;
 }
+/* Update Status page */
+.marginUpdate {
+    margin: 10px 0;
+}

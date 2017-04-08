@@ -47,7 +47,7 @@
                     </div>
                 </a>
                 <% if( userStatus.equals("admin")) { %>
-                    <a href="#" target="_self">
+                    <a href="/Helpdesk/UpdateStatus1" target="_self">
                         <div class="list-group-item col-md-12">
                             เปลี่ยนแปลงสถานะปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
