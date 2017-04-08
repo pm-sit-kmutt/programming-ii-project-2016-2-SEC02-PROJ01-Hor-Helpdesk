@@ -8,6 +8,10 @@ public class Announce {
     private String AnnounceTitle;
     private String AnnounceDes;
     private String AnnounceTime;
+
+    public Announce() {
+    }
+    
     
     public Announce(int AnnounceId){
         this.AnnounceId=AnnounceId;
@@ -69,6 +73,10 @@ public class Announce {
     }
     public static  Announce getAnnounce(int AnnounceId){
         Announce an = new Announce(AnnounceId);
+        return an;
+    }
+    public static  Announce getAnnounce(){
+        Announce an = new Announce();
         return an;
     }
 }

@@ -14,7 +14,7 @@
     </head>
     <body>
         <% Announce An = (Announce)request.getAttribute("message");  %>
-        <table border="2">
+        <table border="2" width="100%">
         <tr>
 
             <th>Title</th>
