@@ -50,7 +50,7 @@ public class ListAnnounce {
             ps.setLong(1,userId);
             result = ps.executeQuery();
             while(result.next()){
-                list.add(new Announce(result.getInt("AnnounceId"));
+                list.add(new Announce(result.getInt("AnnounceId")));
             }
             ps.close();
             connect.close();
