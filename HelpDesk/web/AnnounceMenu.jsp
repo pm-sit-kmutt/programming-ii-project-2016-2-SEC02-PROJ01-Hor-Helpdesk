@@ -13,17 +13,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
+        <style>
+            table, th, td {
+                 border: 1px solid black;
+                 border-collapse: collapse;
+            }  
+        </style>
     </head>
     <body>      
+        <button type="button"> >>Add<< </button>
+        <hr>
         <% ListAnnounce an = (ListAnnounce)request.getAttribute("message"); %>
-        <table>
+        <table style="width: 100%">
             <tr>
-                <th>no</th>
                 <th>News Announce</th>
             </tr>
-            <% for(int i = 0; i < an.getList().size(); i++){ %>
+            <% for(int i = an.getList().size(); i > 0 ; i--){ %>
                 <tr>
-                    <td><%= (i+1) %></td>
                     <td><%= an.getList().get(i).getAnnounceTitle() %></td>                    
                 </tr>                    
             <% } %>
