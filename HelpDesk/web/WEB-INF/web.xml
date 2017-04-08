@@ -44,6 +44,10 @@
         <servlet-name>ListAnnounceServlet</servlet-name>
         <servlet-class>Servlet.ListAnnounceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AnnounceServlet</servlet-name>
+        <servlet-class>Servlet.AnnounceServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ListAnnounceServlet</servlet-name>
         <url-pattern>/ListAnnounce</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnnounceServlet</servlet-name>
+        <url-pattern>/Announce</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

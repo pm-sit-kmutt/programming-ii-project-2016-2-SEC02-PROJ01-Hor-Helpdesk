@@ -76,7 +76,7 @@ public class Announce {
     public void setAnnounceTime(String AnnounceTime) {
         this.AnnounceTime = AnnounceTime;
     }
-    public static  Announce getProblem(int AnnounceId){
+    public static  Announce getAnnounce(int AnnounceId){
         Announce an= new Announce(AnnounceId);
         return an;
     }
