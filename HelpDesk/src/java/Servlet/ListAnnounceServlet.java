@@ -10,11 +10,12 @@ import Model.ListProblem;
 import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.enterprise.inject.Model;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 /**
  *
@@ -35,8 +36,8 @@ public class ListAnnounceServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession s = request.getSession(true);
-        User user = (User)s.getAttribute("user");
+
+
         ListAnnounce an = Model.ListAnnounce.getListAnnounce(user.getUserId());
         String target = "/AnnounceMenu.jsp";
         
