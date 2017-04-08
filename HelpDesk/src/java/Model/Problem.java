@@ -2,7 +2,7 @@ package Model;
 
 import java.sql.*;
 
-public class Problem {
+public class Problem extends Status {
     private int causeId;
     private int problemP;
     private int problemC;
@@ -13,24 +13,25 @@ public class Problem {
     private String status;
     private int roomNo;
 
-    public Problem(int causeId, int roomNo) {
+    public Problem(int causeId) {
         this.causeId = causeId;
-        this.roomNo = roomNo;
         try {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps = connect.prepareStatement(
-                    "SELECT RecordProblem.problemPast, RecordProblem.problemCurrent, RecordProblem.problemNow, Problem.problemId, Problem.problemName, status.statusName, status.statusId "
+                    "SELECT RecordProblem.problemPast, RecordProblem.problemCurrent, RecordProblem.problemNow, Room.roomNo, Problem.problemId, Problem.problemName, status.statusName, status.statusId "
                             + "FROM RecordProblem "
                             + "INNER JOIN Cause ON RecordProblem.Cause_causeId = Cause.causeId "
+                            + "INNER JOIN Room ON Cause.Room_roomId = Room.roomId "
                             + "INNER JOIN Problem ON Cause.Problem_problemId = Problem.problemId "
                             + "INNER JOIN status ON Cause.status_statusId = status.statusId "
-                            + "WHERE RecordProblem.Cause_causeId = ? ");
+                            + "WHERE RecordProblem.Cause_causeId = ?");
             ps.setInt(1,causeId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
                 problemP = result.getInt("problemPast");
                 problemC = result.getInt("problemCurrent");
                 problemN = result.getInt("problemNow");
+                roomNo = result.getInt("roomNo");
                 problemId = result.getInt("problemId");
                 name = result.getString("problemName");
                 status = result.getString("statusName");
@@ -128,8 +129,8 @@ public class Problem {
         this.roomNo = roomNo;
     }
     
-    public static Problem getProblem(int causeId, int roomNo){
-        Problem p = new Problem(causeId,roomNo);
+    public static Problem getProblem(int causeId){
+        Problem p = new Problem(causeId);
         return p;
     }
 }

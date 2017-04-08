@@ -34,7 +34,7 @@
                         <tr>
                             <th class="text-center">#</th>
                             <th>problem name</th>
-                            <th>report</th>
+                            <th class="text-center">report</th>
                         </tr>
                     </thead>
                     <form method="post" action="/Helpdesk/ReportProblem" id="form" onsubmit="return confirmReport()"></form>
@@ -50,20 +50,22 @@
                             <tr>
                                 <td class="text-center"><%= (i+1) %></td>
                                 <td><%= reportP.getProblemName().get(i) %></td>
-                                <% if(have) {
-                                    for (int j = 0; j < reportP.getList().size(); j++) {
-                                        if (reportP.getList().get(j).getProblemId() == (i+1)) {
-                                            if(reportP.getList().get(j).getStatusId() == 3){ %>
-                                            <td><button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-warning">Report</button></td>
-                                            <% }else{ %>
-                                                <td><button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-default" disabled="disabled">Report</button></td>
-                                            <% }
+                                <td class="text-center">
+                                    <% if(have) {
+                                        for (int j = 0; j < reportP.getList().size(); j++) {
+                                            if (reportP.getList().get(j).getProblemId() == (i+1)) {
+                                                if(reportP.getList().get(j).getStatusId() == 3){ %>
+                                                <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-warning">Report</button>
+                                                <% }else{ %>
+                                                    <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-default" disabled="disabled">Report</button>
+                                                <% }
+                                            }
                                         }
-                                    }
-                                } else { %>
-                                    <td><button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-warning">Report</button></td>    
-                                <% }
-                                have = false; %>
+                                    } else { %>
+                                        <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-warning">Report</button>  
+                                    <% }
+                                    have = false; %>
+                                </td>
                             </tr>
                         <% } %>
                     </tbody>

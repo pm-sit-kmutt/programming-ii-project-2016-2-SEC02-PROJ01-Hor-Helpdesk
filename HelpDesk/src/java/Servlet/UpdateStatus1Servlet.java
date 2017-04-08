@@ -1,12 +1,14 @@
 package Servlet;
 
 import Model.ListProblem;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class UpdateStatus1Servlet extends HttpServlet {
 
@@ -14,10 +16,12 @@ public class UpdateStatus1Servlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        ListProblem listP = Model.ListProblem.getShowListProblem(1);
+        HttpSession s = request.getSession(true);
+        User user = (User)s.getAttribute("user");
+        ListProblem listS = Model.ListProblem.getShowListProblem(user.getUserId());
         String target = "/UpdateStatus1.jsp";
         
-        request.setAttribute("message", listP);
+        request.setAttribute("message", listS);
         
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

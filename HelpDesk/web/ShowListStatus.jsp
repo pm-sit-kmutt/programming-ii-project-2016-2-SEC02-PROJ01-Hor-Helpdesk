@@ -48,10 +48,10 @@
                                     <td class="text-center"><%= listS.getList().get(i).getRoom() %></td>
                                 <% } %>
                                 <td class="text-center">
-                                    <% if(listS.getList().get(i).getStatus().equals("รอดำเนินการ")) { %>
+                                    <% if(listS.getList().get(i).getStatusId() == 1) { %>
                                         <p class="btn btn-danger status"><%= listS.getList().get(i).getStatus() %></p>
                                     <% }
-                                    else if(listS.getList().get(i).getStatus().equals("กำลังดำเนินการ")) {%>
+                                    else if(listS.getList().get(i).getStatusId() == 2) {%>
                                         <p class="btn btn-warning status"><%= listS.getList().get(i).getStatus() %></p>
                                     <% } else { %>
                                         <p class="btn btn-success status"><%= listS.getList().get(i).getStatus() %></p>

@@ -4,6 +4,7 @@
     Author     : Poppular
 --%>
 
+<%@page import="Model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Problem"%>
 <%@page import="Model.ListProblem"%>
@@ -11,27 +12,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Update Status</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
-    <body>      
-        <% ListProblem listS = (ListProblem)request.getAttribute("message"); %>
-        <table>
-            <tr>
-                <th>no.</th>
-                <th>problem name</th>
-                <th>room</th>
-                <th>status</th>
-                <th></th>
-            </tr>
-            <% for(int i = 0; i < listS.getList().size(); i++){ %>
-                <tr>
-                    <td><%= (i+1) %></td>
-                    <td><%= listS.getList().get(i).getName() %></td>
-                    <td><%= listS.getList().get(i).getRoom() %></td>
-                    <td><%= listS.getList().get(i).getStatus() %></td>
-                    <td> <button type="button">Update</button></td>
-                </tr>                    
-            <% } %>
-         </table>
+    <body>
+        <% User user = (User)session.getAttribute("user");
+        String userStatus = user.getStatus();
+        String userName = user.getName();
+        ListProblem listS = (ListProblem)request.getAttribute("message"); %>
+        <%@include file="Navbar.jsp" %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Update Status</h1>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-hover table-condensed table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th>problem name</th>
+                            <th class="text-center">room</th>
+                            <th class="text-center">status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <form method="get" action="/Helpdesk/UpdateStatus2" id="form"></form>
+                    <tbody>
+                        <% for(int i = 0; i < listS.getList().size(); i++) { %>
+                            <tr>
+                                <td class="text-center"><%= (i+1) %></td>
+                                <td><%= listS.getList().get(i).getName() %></td>
+                                <% if(userStatus.equals("admin")) { %>
+                                    <td class="text-center"><%= listS.getList().get(i).getRoom() %></td>
+                                <% } %>
+                                <td class="text-center">
+                                    <% if(listS.getList().get(i).getStatusId() == 1) { %>
+                                        <p class="btn btn-danger status"><%= listS.getList().get(i).getStatus() %></p>
+                                    <% }
+                                    else if(listS.getList().get(i).getStatusId() == 2) {%>
+                                        <p class="btn btn-warning status"><%= listS.getList().get(i).getStatus() %></p>
+                                    <% } else { %>
+                                        <p class="btn btn-success status"><%= listS.getList().get(i).getStatus() %></p>
+                                    <% } %>
+                                </td>
+                                <td><button type="submit" name="causeId" value='<%= listS.getList().get(i).getCauseId() %>' form="form" class="btn btn-primary">Update</button></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <%@include file="BackButton.jsp" %>
+        </div>
     </body>
 </html>
