@@ -61,6 +61,31 @@ public class ListAnnounce {
             System.out.println(e.getMessage());
         }
     }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public ArrayList<Announce> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Announce> list) {
+        this.list = list;
+    }
+    
     public static ListAnnounce getListAnnounce(long userId){
        ListAnnounce an = new ListAnnounce(userId);
        return an;
