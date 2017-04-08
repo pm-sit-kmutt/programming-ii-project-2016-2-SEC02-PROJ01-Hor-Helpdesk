@@ -5,12 +5,16 @@
  */
 package Servlet;
 
+import Model.ListAnnounce;
+import Model.ListProblem;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,17 +34,15 @@ public class ListAnnounceServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListAnnounceServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ListAnnounceServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        HttpSession s = request.getSession(true);
+        User user = (User)s.getAttribute("user");
+        ListAnnounce an = Model.ListAnnounce.getListAnnounce(user.getUserId());
+        String target = "/AnnounceMenu.jsp";
+        
+        request.setAttribute("message", an);
+        
+        getServletContext().getRequestDispatcher(target).forward(request, response);
         }
     }
 
