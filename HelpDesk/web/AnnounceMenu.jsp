@@ -28,7 +28,7 @@
             <tr>
                 <th>News Announce</th>
             </tr>
-            <% for(int i = an.getList().size(); i > 0 ; i--){ %>
+            <%  for(int i = 0; i < an.getList().size(); i++){ %>
                 <tr>
                     <td><%= an.getList().get(i).getAnnounceTitle() %></td>                    
                 </tr>                    

@@ -11,6 +11,7 @@ public class ListProblem {
     public ListProblem() {
         list = new ArrayList<Problem>();
     }
+    
     public ListProblem(long userId) {
         this();
         this.userId = userId;
