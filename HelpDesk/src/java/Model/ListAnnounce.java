@@ -15,6 +15,7 @@ public class ListAnnounce {
     public ListAnnounce() {
         list = new ArrayList<Announce>();
     }
+    
     public ListAnnounce(long userId) {
         this();
         this.userId = userId;
@@ -29,7 +30,7 @@ public class ListAnnounce {
             ps.close();
             if(status.equalsIgnoreCase("student")){
                 ps = connect.prepareStatement(
-                        "SELECT User.userId, Room.roomNo, Domitory.dormId, Announce.Domitory_dormId "
+                        "SELECT User.userId, Room.roomNo, Domitory.dormId, Announce.AnnounceId "
                                  + "FROM User "
                                 + "INNER JOIN Renter ON User.userId = Renter.User_userId "
                                 + "INNER JOIN Renter_has_Room ON Renter.renterId = Renter_has_Room.Renter_renterId "
@@ -40,7 +41,7 @@ public class ListAnnounce {
             }
             else {
                 ps = connect.prepareStatement(
-                        "SELECT User.userId, Dormitory.dormId, Announce.Domitory_dormId "
+                        "SELECT User.userId, Dormitory.dormId, Announce.AnnounceId "
                                 + "FROM User "
                                 + "INNER JOIN Dormitory ON User.userId = Dormitory.User_userId "
                                 + "INNER JOIN Announce ON Dormitory.dormId = Announce.Dormitory_dormId "
