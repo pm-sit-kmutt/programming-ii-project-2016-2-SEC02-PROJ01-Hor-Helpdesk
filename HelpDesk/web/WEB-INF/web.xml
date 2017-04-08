@@ -40,6 +40,10 @@
         <servlet-name>UpdateStatus2Servlet</servlet-name>
         <servlet-class>Servlet.UpdateStatus2Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListAnnounceServlet</servlet-name>
+        <servlet-class>Servlet.ListAnnounceServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>UpdateStatus2Servlet</servlet-name>
         <url-pattern>/UpdateStatus2Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAnnounceServlet</servlet-name>
+        <url-pattern>/ListAnnounce</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
