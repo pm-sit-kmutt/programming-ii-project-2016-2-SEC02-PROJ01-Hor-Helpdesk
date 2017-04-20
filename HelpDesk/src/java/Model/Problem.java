@@ -98,6 +98,23 @@ public class Problem extends Status {
             ps.setInt(2, causeId);
             int record = ps.executeUpdate();
             ps.close();            
+            connect.close();
+            this.setStatus("status",statusId);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status,int statusId) {
+        this.status = status;
+        this.statusId = statusId;
+        try {
+            Connection connect = ConnectionBuilder.getConnection();
+            PreparedStatement ps;
             ps = connect.prepareStatement(
                     "SELECT statusName "
                     + "FROM status "
@@ -114,12 +131,6 @@ public class Problem extends Status {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
     }
     public int getRoom() {
         return roomNo;

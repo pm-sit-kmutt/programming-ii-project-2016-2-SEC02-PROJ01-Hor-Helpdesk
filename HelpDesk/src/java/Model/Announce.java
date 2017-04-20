@@ -18,7 +18,7 @@ public class Announce {
         try {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps = connect.prepareStatement(
-                    "SELECT AnnounceId , AnnounceTitle, AnnounceDes , AnnounceTime  "
+                    "SELECT AnnounceId , announceTitle, announceDes , announceTime  "
                             + "FROM Announce "
                             
                             + "WHERE AnnounceId = ? ");
@@ -26,9 +26,9 @@ public class Announce {
             ResultSet result = ps.executeQuery();
             while(result.next()){
                 AnnounceId = result.getInt("AnnounceId");
-                AnnounceTitle = result.getString("AnnounceTitle");
-                AnnounceDes = result.getString("AnnounceDes");
-                AnnounceTime = result.getString("AnnounceTime");
+                AnnounceTitle = result.getString("announceTitle");
+                AnnounceDes = result.getString("announceDes");
+                AnnounceTime = result.getString("announceTime");
                 
             }
         }
