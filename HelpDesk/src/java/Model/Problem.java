@@ -18,13 +18,13 @@ public class Problem extends Status {
         try {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps = connect.prepareStatement(
-                    "SELECT RecordProblem.problemPast, RecordProblem.problemCurrent, RecordProblem.problemNow, Room.roomNo, Problem.problemId, Problem.problemName, status.statusName, status.statusId "
-                            + "FROM RecordProblem "
-                            + "INNER JOIN Cause ON RecordProblem.Cause_causeId = Cause.causeId "
-                            + "INNER JOIN Room ON Cause.Room_roomId = Room.roomId "
-                            + "INNER JOIN Problem ON Cause.Problem_problemId = Problem.problemId "
-                            + "INNER JOIN status ON Cause.status_statusId = status.statusId "
-                            + "WHERE RecordProblem.Cause_causeId = ?");
+                "SELECT RecordProblem.problemPast, RecordProblem.problemCurrent, RecordProblem.problemNow, Room.roomNo, Problem.problemId, Problem.problemName, status.statusName, status.statusId "
+                + "FROM RecordProblem "
+                + "INNER JOIN Cause ON RecordProblem.Cause_causeId = Cause.causeId "
+                + "INNER JOIN Room ON Cause.Room_roomId = Room.roomId "
+                + "INNER JOIN Problem ON Cause.Problem_problemId = Problem.problemId "
+                + "INNER JOIN status ON Cause.status_statusId = status.statusId "
+                + "WHERE RecordProblem.Cause_causeId = ?");
             ps.setInt(1,causeId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
@@ -91,9 +91,9 @@ public class Problem extends Status {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps;
             ps = connect.prepareStatement(
-                    "UPDATE Cause "
-                    + "SET status_statusId = ? "
-                    + "WHERE causeId = ?");
+                "UPDATE Cause "
+                + "SET status_statusId = ? "
+                + "WHERE causeId = ?");
             ps.setInt(1, statusId);
             ps.setInt(2, causeId);
             int record = ps.executeUpdate();
@@ -116,9 +116,9 @@ public class Problem extends Status {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps;
             ps = connect.prepareStatement(
-                    "SELECT statusName "
-                    + "FROM status "
-                    + "WHERE statusId = ?");
+                "SELECT statusName "
+                + "FROM status "
+                + "WHERE statusId = ?");
             ps.setInt(1,statusId);
             ResultSet result = ps.executeQuery();
             while(result.next()){

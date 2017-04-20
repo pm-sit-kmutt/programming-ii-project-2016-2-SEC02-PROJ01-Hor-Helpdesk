@@ -2,7 +2,6 @@ package Model;
 
 import java.sql.*;
 
-
 public class Announce {
     private int AnnounceId;
     private String AnnounceTitle;
@@ -11,17 +10,14 @@ public class Announce {
 
     public Announce() {
     }
-    
-    
     public Announce(int AnnounceId){
         this.AnnounceId=AnnounceId;
         try {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps = connect.prepareStatement(
-                    "SELECT AnnounceId , announceTitle, announceDes , announceTime  "
-                            + "FROM Announce "
-                            
-                            + "WHERE AnnounceId = ? ");
+                "SELECT * "
+                + "FROM Announce "
+                + "WHERE AnnounceId = ? ");
             ps.setInt(1,AnnounceId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
@@ -29,7 +25,6 @@ public class Announce {
                 AnnounceTitle = result.getString("announceTitle");
                 AnnounceDes = result.getString("announceDes");
                 AnnounceTime = result.getString("announceTime");
-                
             }
         }
         catch(SQLException | ClassNotFoundException e) {
@@ -43,31 +38,24 @@ public class Announce {
     public int ListAnnounce() {
         return AnnounceId;
     }
-
     public void setAnnounceId(int AnnounceId) {
         this.AnnounceId = AnnounceId;
     }
-
     public String getAnnounceTitle() {
         return AnnounceTitle;
     }
-
     public void setAnnounceTitle(String AnnounceTitle) {
         this.AnnounceTitle = AnnounceTitle;
     }
-
     public String getAnnounceDes() {
         return AnnounceDes;
     }
-
     public void setAnnounceDes(String AnnounceDes) {
         this.AnnounceDes = AnnounceDes;
     }
-
     public String getAnnounceTime() {
         return AnnounceTime;
     }
-
     public void setAnnounceTime(String AnnounceTime) {
         this.AnnounceTime = AnnounceTime;
     }
@@ -80,6 +68,3 @@ public class Announce {
         return an;
     }
 }
-    
-    
-

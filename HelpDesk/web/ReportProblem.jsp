@@ -15,6 +15,23 @@
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+        <script type="text/javascript">
+            function confirmReport(){
+                swal({
+                    title: "Are you sure?",
+                    text: "คุณจะแจ้งปัญหานี้",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    closeOnConfirm: false
+                },
+                function(){
+                    swal("Report!", "คุณได้แจ้งปัญหาเรียบร้อบแล้ว", "success");
+                });
+            }
+        </script>
     </head>
     <body>
         <% User user = (User)session.getAttribute("user");
@@ -73,25 +90,5 @@
             </div>
             <%@include file="BackButton.jsp" %>
         </div>
-        <script type="text/javascript">
-            function confirmReport(){
-                swal({
-                    title: "Are you sure?",
-                    text: "คุณจะแจ้งปัญหานี้",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes",
-                    cancelButtonText: "No",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                function(isConfirm){
-                    if (isConfirm) {
-                        swal("Report!", "คุณได้แจ้งปัญหาเรียบร้อบแล้ว", "success");
-                    }
-                });
-            }
-        </script>
     </body>
 </html>
