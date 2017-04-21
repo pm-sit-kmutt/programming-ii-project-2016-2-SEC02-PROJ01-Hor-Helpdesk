@@ -17,12 +17,12 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
     <body>
-        <% // User user = (User)session.getAttribute("user");
-//        String userStatus = user.getStatus();
-//        String userName = user.getName();
+        <% User user = (User)session.getAttribute("user");
+        String userStatus = user.getStatus();
+        String userName = user.getName();
         Summary summary = (Summary)request.getAttribute("message");
         ArrayList<Integer>[] roomCurrentMax = summary.getRoomMaxCurrent(); %>
-        <%--<%@include file="Navbar.jsp" %>--%>
+        <%@include file="Navbar.jsp" %>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

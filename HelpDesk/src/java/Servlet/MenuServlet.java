@@ -22,7 +22,7 @@ public class MenuServlet extends HttpServlet {
             User u = new User();
             s = request.getSession();
             s.setAttribute("user", u);
-            target = "/Helpdesk/Login";
+            target = "/HelpDesk/Login";
         }
         
         getServletContext().getRequestDispatcher(target).forward(request, response);

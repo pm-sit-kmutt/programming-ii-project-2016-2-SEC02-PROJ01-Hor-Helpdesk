@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             getServletContext().getRequestDispatcher(target).forward(request, response);
         }
         else {
-            target = "/Helpdesk/Menu";
+            target = "/HelpDesk/Menu";
             response.sendRedirect(target);
         }
     }
@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
                     User u = new User(result.getLong("userId"));
                     s.setAttribute("user", u);
                 }
-                target = "/Helpdesk/Menu";
+                target = "/HelpDesk/Menu";
                 response.sendRedirect(target);
             }
         }

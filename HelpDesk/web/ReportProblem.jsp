@@ -44,7 +44,7 @@
                             <th class="text-center">report</th>
                         </tr>
                     </thead>
-                    <form method="post" action="/Helpdesk/ReportProblem" id="form" onsubmit="return confirmReport()"></form>
+                    <form method="post" action="/HelpDesk/ReportProblem" id="form" onsubmit="return confirmReport()"></form>
                     <tbody>
                         <% for(int i = 0; i< reportP.getProblemName().size(); i++) { 
                             boolean have = false; 

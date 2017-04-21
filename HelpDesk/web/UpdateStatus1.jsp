@@ -40,7 +40,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <form method="get" action="/Helpdesk/UpdateStatus2" id="form"></form>
+                    <form method="get" action="/HelpDesk/UpdateStatus2" id="form"></form>
                     <tbody>
                         <% for(int i = 0; i < listS.getList().size(); i++) { %>
                             <tr>

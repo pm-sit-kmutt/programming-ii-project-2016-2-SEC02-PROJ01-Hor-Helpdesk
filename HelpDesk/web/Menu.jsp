@@ -27,27 +27,27 @@
             </div>
             <div class="row list-group menu-list">
                 <% if( userStatus.equals("student")) { %>
-                    <a href="/Helpdesk/ReportProblem" target="_self">
+                    <a href="/HelpDesk/ReportProblem" target="_self">
                         <div class="list-group-item col-md-12">
                             รายงานปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
                         </div>
                     </a>
                 <% } %>
-                <a href="/Helpdesk/ShowListProblem" target="_self">
+                <a href="/HelpDesk/ShowListProblem" target="_self">
                     <div class="list-group-item col-md-12">
                         แสดงรายการแจ้งปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>
-                <a href="/Helpdesk/ShowListStatus" target="_self">
+                <a href="/HelpDesk/ShowListStatus" target="_self">
                     <div class="list-group-item col-md-12">
                         แสดงสถานะปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
                     </div>
                 </a>
                 <% if( userStatus.equals("admin")) { %>
-                    <a href="/Helpdesk/UpdateStatus1" target="_self">
+                    <a href="/HelpDesk/UpdateStatus1" target="_self">
                         <div class="list-group-item col-md-12">
                             เปลี่ยนแปลงสถานะปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
@@ -55,7 +55,7 @@
                     </a>
                 <% }
                 if( userStatus.equals("admin")) { %>
-                    <a href="/Helpdesk/Summary" target="_self">
+                    <a href="/HelpDesk/Summary" target="_self">
                         <div class="list-group-item col-md-12">
                             สรุปปัญหา
                             <img src="assets/img/arrow.png" alt="icon">

@@ -26,7 +26,7 @@ public class LogoutServlet extends HttpServlet {
         HttpSession s = request.getSession(true);
         User u = new User();
         s.setAttribute("userId", u);
-        String target = "/Helpdesk/Login";
+        String target = "/HelpDesk/Login";
 
         response.sendRedirect(target);
     }

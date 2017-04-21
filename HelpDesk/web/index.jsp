@@ -13,7 +13,7 @@
     </head>
     <body>
         <script>
-            setTimeout(function(){location.href="/Helpdesk/Login"} , 0);
+            setTimeout(function(){location.href="/HelpDesk/Login"} , 0);
         </script>
     </body>
 </html>

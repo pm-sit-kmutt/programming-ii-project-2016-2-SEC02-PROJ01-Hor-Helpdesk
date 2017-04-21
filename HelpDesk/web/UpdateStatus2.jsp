@@ -47,7 +47,7 @@
             <div class="row marginUpdate">
                 <div class="col-md-4 col-md-offset-4">
                     Update Status : 
-                    <form method="post" action="/Helpdesk/UpdateStatus2" id="form" onsubmit="return confirmReport()">
+                    <form method="post" action="/HelpDesk/UpdateStatus2" id="form" onsubmit="return confirmReport()">
                         <select name="statusId">
                             <% for (int i = 0; i < p.getStatusName().size(); i++) { %>
                                 <option value='<%= (i+1) %>'><%= p.getStatusName().get(i) %></option>
