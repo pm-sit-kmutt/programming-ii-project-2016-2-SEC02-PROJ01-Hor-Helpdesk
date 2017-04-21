@@ -16,9 +16,10 @@ public class SummaryServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession s = request.getSession(true);
-        User user = (User)s.getAttribute("user");
-        Summary summary = Model.Summary.getSummary(user.getUserId());
+//        HttpSession s = request.getSession(true);
+//        User user = (User)s.getAttribute("user");
+//        Summary summary = Model.Summary.getSummary(user.getUserId());
+        Summary summary = Model.Summary.getSummary(1);
         String target = "/Summary.jsp";
 
         request.setAttribute("message", summary);

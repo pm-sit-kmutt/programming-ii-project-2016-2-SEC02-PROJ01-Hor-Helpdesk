@@ -56,13 +56,7 @@
             $(document).ready(function () {
                 <% User user = (User) session.getAttribute("user");
                 if (user.getUserId() == -1) { %>
-                    swal({
-                        title: "ERROR",
-                        text: "กรุณากรอก E-mail และ Password ให้ถูกต้อง",
-                        type: "error",
-                        confirmButtonText: "OK"
-                    });
-                        
+                    alert("กรุณากรอก E-mail และ Password ให้ถูกต้อง"); 
                 <% }%>
             });
         </script>
