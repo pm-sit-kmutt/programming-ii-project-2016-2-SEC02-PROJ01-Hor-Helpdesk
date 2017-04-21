@@ -48,3 +48,7 @@ thead tr {
 .marginUpdate {
     margin: 10px 0;
 }
+/* Summary page*/
+ul {
+    list-style-type: square;
+}

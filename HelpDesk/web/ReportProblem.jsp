@@ -3,6 +3,9 @@
     Created on : Mar 25, 2017, 10:42:22 AM
     Author     : Poppular
 --%>
+<%@page import="Model.Problem"%>
+<%@page import="Model.Problem"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Model.User"%>
 <%@page import="Model.ReportProblem"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,25 +14,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Report Problem</title>
-        <script src="assets/js/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
         <script type="text/javascript">
             function confirmReport(){
-                swal({
-                    title: "Are you sure?",
-                    text: "คุณจะแจ้งปัญหานี้",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes",
-                    cancelButtonText: "No",
-                    closeOnConfirm: false
-                },
-                function(){
-                    swal("Report!", "คุณได้แจ้งปัญหาเรียบร้อบแล้ว", "success");
-                });
+                return confirm('คุณจะแจ้งปัญหานี้แน่ใจหรือไม่');
             }
         </script>
     </head>
@@ -37,7 +26,8 @@
         <% User user = (User)session.getAttribute("user");
         String userStatus = user.getStatus();
         String userName = user.getName();
-        ReportProblem reportP = (ReportProblem)request.getAttribute("message"); %>
+        ReportProblem reportP = (ReportProblem)request.getAttribute("message");
+        ArrayList<Problem> list = reportP.getList(); %>
         <%@include file="Navbar.jsp" %>
         <div class="container">
             <div class="row">
@@ -58,8 +48,8 @@
                     <tbody>
                         <% for(int i = 0; i< reportP.getProblemName().size(); i++) { 
                             boolean have = false; 
-                            for (int j = 0; j < reportP.getList().size(); j++) { 
-                                if (reportP.getList().get(j).getProblemId() == (i+1)) { 
+                            for (int j = 0; j < list.size(); j++) { 
+                                if (list.get(j).getProblemId() == (i+1)) { 
                                     have = true; 
                                     break;  
                                 } 
@@ -69,17 +59,19 @@
                                 <td><%= reportP.getProblemName().get(i) %></td>
                                 <td class="text-center">
                                     <% if(have) {
-                                        for (int j = 0; j < reportP.getList().size(); j++) {
-                                            if (reportP.getList().get(j).getProblemId() == (i+1)) {
-                                                if(reportP.getList().get(j).getStatusId() == 3){ %>
-                                                <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-warning">Report</button>
-                                                <% }else{ %>
-                                                    <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-default" disabled="disabled">Report</button>
+                                        for (int j = 0; j < list.size(); j++) {
+                                            if (list.get(j).getProblemId() == (i+1)) {
+                                                if(list.get(j).getStatusId() == 3){ %>
+                                                    <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-primary">Report</button>
+                                                <% }else if(list.get(j).getStatusId() == 1) { %>
+                                                    <p class="btn btn-danger status" readonly><%= list.get(j).getStatus() %></p>
+                                                <% } else if(list.get(j).getStatusId() == 2) {%>
+                                                    <p class="btn btn-warning status" readonly><%= list.get(j).getStatus() %></p>
                                                 <% }
                                             }
                                         }
                                     } else { %>
-                                        <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-warning">Report</button>  
+                                        <button type="submit" name="report" value='<%= (i+1) %>' form="form" class="btn btn-primary">Report</button>  
                                     <% }
                                     have = false; %>
                                 </td>

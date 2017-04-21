@@ -124,7 +124,6 @@ public class Problem extends Status {
     public int getRoom() {
         return roomNo;
     }
-    
     public void setRoom(int roomNo) {
         this.roomNo = roomNo;
     }

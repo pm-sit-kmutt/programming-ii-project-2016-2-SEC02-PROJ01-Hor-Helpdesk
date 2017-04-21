@@ -55,7 +55,7 @@
                     </a>
                 <% }
                 if( userStatus.equals("admin")) { %>
-                    <a href="#" target="_self">
+                    <a href="/Helpdesk/Summary" target="_self">
                         <div class="list-group-item col-md-12">
                             สรุปปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
