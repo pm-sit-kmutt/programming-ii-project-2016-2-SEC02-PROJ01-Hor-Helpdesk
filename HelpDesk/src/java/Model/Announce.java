@@ -21,9 +21,10 @@ public class Announce {
             ps.setInt(1,AnnounceId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
-                AnnounceTitle = result.getString("AnnounceTitle");
-                AnnounceDes = result.getString("AnnounceDes");
-                AnnounceTime = result.getString("AnnounceTime");
+                AnnounceId = result.getInt("AnnounceId");
+                AnnounceTitle = result.getString("announceTitle");
+                AnnounceDes = result.getString("announceDes");
+                AnnounceTime = result.getString("announceTime");
             }
         }
         catch(SQLException | ClassNotFoundException e) {
