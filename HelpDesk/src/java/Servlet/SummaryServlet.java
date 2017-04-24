@@ -19,7 +19,6 @@ public class SummaryServlet extends HttpServlet {
         HttpSession s = request.getSession(true);
         User user = (User)s.getAttribute("user");
         Summary summary = Model.Summary.getSummary(user.getUserId());
-//        Summary summary = Model.Summary.getSummary(1);
         String target = "/Summary.jsp";
 
         request.setAttribute("message", summary);

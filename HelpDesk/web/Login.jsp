@@ -12,10 +12,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
         <script src="assets/js/jquery-3.2.0.min.js"></script>
-        <script src="assets/js/sweetalert.min.js"></script>
+        <script src="assets/js/alertify.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/alertify.min.css">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                <% User user = (User) session.getAttribute("user");
+                if (user.getUserId() == -1) { %>
+                    alertify.alert("Login ERROR", "กรุณากรอก E-mail และ Password ให้ถูกต้อง");
+                <% }%>
+            });
+        </script>
     </head>
     <body>
         <div class="container">
@@ -52,13 +60,5 @@
                 </form>
             </div>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                <% User user = (User) session.getAttribute("user");
-                if (user.getUserId() == -1) { %>
-                    alert("กรุณากรอก E-mail และ Password ให้ถูกต้อง"); 
-                <% }%>
-            });
-        </script>
     </body>
 </html>
