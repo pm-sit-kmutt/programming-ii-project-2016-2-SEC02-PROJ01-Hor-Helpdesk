@@ -15,28 +15,18 @@ public class Summary extends ProblemName{
         super();
         this.userId = userId;
         past = new int[27];
-        for (int i = 0; i < past.length; i++) {
-            past[i] = 0;
-        }
         maxPast = new int[27];
-        for (int i = 0; i < past.length; i++) {
-            maxPast[i] = 0;
-        }
         roomMaxPast = new ArrayList[27];
-        for (int i = 0; i < roomMaxPast.length; i++) {
-            roomMaxPast[i] = new ArrayList<Integer>();
-            roomMaxPast[i].add(0);
-        }
         current = new int[27];
-        for (int i = 0; i < past.length; i++) {
-            current[i] = 0;
-        }
         maxCurrent = new int[27];
-        for (int i = 0; i < past.length; i++) {
-            current[i] = 0;
-        }
         roomMaxCurrent = new ArrayList[27];
         for (int i = 0; i < roomMaxCurrent.length; i++) {
+            past[i] = 0;
+            maxPast[i] = 0;
+            roomMaxPast[i] = new ArrayList<Integer>();
+            roomMaxPast[i].add(0);
+            current[i] = 0;
+            maxCurrent[i] = 0;
             roomMaxCurrent[i] = new ArrayList<Integer>();
             roomMaxCurrent[i].add(0);
         }
