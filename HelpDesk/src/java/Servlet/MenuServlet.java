@@ -16,14 +16,6 @@ public class MenuServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String target = "/Menu.jsp";
-        HttpSession s = request.getSession(false);
-        
-        if (s == null || s.getAttribute("user") == null) {
-            User u = new User();
-            s = request.getSession();
-            s.setAttribute("user", u);
-            target = "/HelpDesk/Login";
-        }
         
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

@@ -20,18 +20,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession s = request.getSession(true);
         User u = new User();
         s.setAttribute("user", u);
-        String target = null;
+        String target = "/Login.jsp";
         
-        u = (User)s.getAttribute("user");
-        
-        if(u.getUserId() == 0 || u.getUserId() == -1){
-            target = "/Login.jsp";
-            getServletContext().getRequestDispatcher(target).forward(request, response);
-        }
-        else {
-            target = "/HelpDesk/Menu";
-            response.sendRedirect(target);
-        }
+        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
