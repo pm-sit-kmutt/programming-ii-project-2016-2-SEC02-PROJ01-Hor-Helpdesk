@@ -4,52 +4,70 @@
     Author     : Poppular
 --%>
 
+<%@page import="Model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Announce Form</title>
-        <style>
-            #submit {
-                float: right;
-
+        <script src="assets/js/jquery-3.2.0.min.js"></script>
+        <script src="assets/js/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+        <script>
+            function confirmAdd() {
+                var title = $('#title').val();
+                swal({
+                    title: "Are you sure?",
+                    text: "คุณจะเพิ่มประกาศนี้แน่ใจหรือไม่<br><p>Title : " + title + "</p>",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    closeOnConfirm: false,
+                    html: true
+                },
+                function(){
+                    swal("ADD!", "เพิ่มประกาศเสร็จสิ้น", "success");
+                    $('#form').submit();
+                });
             }
-            textArea{
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-        </style>
+        </script>
     </head>
     <body>
-        <div>
-            Title : <br>
-            <textarea></textarea>
-            Description : <br>
-            <textarea></textarea><br>
-            <script>
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth() + 1; //January is 0!
-                var yyyy = today.getFullYear();
-
-                if (dd < 10) {
-                    dd = '0' + dd ;
-                }
-
-                if (mm < 10) {
-                    mm = '0' + mm ;
-                }
-
-                today = mm + '/' + dd + '/' + yyyy;
-                document.write(today);
-            </script>
-            <input id="submit" type="submit" value="Submit">    
+        <% User user = (User)session.getAttribute("user");
+        String userStatus = user.getStatus();
+        String userName = user.getName(); %>
+        <%@include file="Navbar.jsp" %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Announce Form</h1>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post" action="/HelpDesk/AnnounceForm" id="form">
+                    <div class="col-md-10 col-md-offset-1">
+                        Title : <input type="text" class="form-control" name="title" id="title" maxlength="100">
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        Description :
+                        <br>
+                        <textarea rows="10" cols="100" name="description" class="form-control"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="row marginUpdate">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <button type="button" class="btn btn-login" onclick="confirmAdd()">ADD</button>
+                    <a href="/HelpDesk/ListAnnounce" target="_self">
+                        <button class="btn btn-login" id="back">Back</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
