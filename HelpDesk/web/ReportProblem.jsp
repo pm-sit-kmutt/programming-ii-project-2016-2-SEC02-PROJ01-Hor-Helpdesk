@@ -15,24 +15,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Report Problem</title>
         <script src="assets/js/jquery-3.2.0.min.js"></script>
-        <script src="assets/js/alertify.min.js"></script>
+        <script src="assets/js/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/alertify.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
         <script type="text/javascript">
             function confirmReport(num) {
-                alertify.confirm(
-                    "Are you sure?", 
-                    "คุณจะแจ้งปัญหานี้แน่ใจหรือไม่", 
-                    function(){
-                        $('#report').val(""+num);
-                        alertify.success('YES'); 
-                        $('#form').submit(); 
-                    }, 
-                    function(){ 
-                        alertify.error('NO');
-                    }
-                );
+                swal({
+                    title: "Are you sure?",
+                    text: "คุณจะแจ้งปัญหานี้แน่ใจหรือไม่",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    closeOnConfirm: false,
+                },
+                function(){
+                    swal("Report!", "แจ้งปัญหาเสร็จสิ้น", "success");
+                    $('#report').val(""+num);
+                    $('#form').submit();
+                });
             }
         </script>
     </head>
