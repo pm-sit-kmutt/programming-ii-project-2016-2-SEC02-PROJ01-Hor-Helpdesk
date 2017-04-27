@@ -52,6 +52,10 @@
         <servlet-name>AnnounceFormServlet</servlet-name>
         <servlet-class>Servlet.AnnounceFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AnnounceEditServlet</servlet-name>
+        <servlet-class>Servlet.AnnounceEditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowListProblemServlet</servlet-name>
         <url-pattern>/ShowListProblem</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>AnnounceFormServlet</servlet-name>
         <url-pattern>/AnnounceForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnnounceEditServlet</servlet-name>
+        <url-pattern>/AnnounceEdit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
