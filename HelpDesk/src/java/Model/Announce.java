@@ -35,7 +35,7 @@ public class Announce {
         }
     }
 
-    public int ListAnnounce() {
+    public int getAnnounceId() {
         return AnnounceId;
     }
     public void setAnnounceId(int AnnounceId) {
@@ -59,12 +59,13 @@ public class Announce {
     public void setAnnounceTime(String AnnounceTime) {
         this.AnnounceTime = AnnounceTime;
     }
-    public static  Announce getAnnounce(int AnnounceId){
-        Announce an = new Announce(AnnounceId);
-        return an;
-    }
+    
     public static  Announce getAnnounce(){
         Announce an = new Announce();
+        return an;
+    }
+    public static  Announce getAnnounce(int AnnounceId){
+        Announce an = new Announce(AnnounceId);
         return an;
     }
 }
