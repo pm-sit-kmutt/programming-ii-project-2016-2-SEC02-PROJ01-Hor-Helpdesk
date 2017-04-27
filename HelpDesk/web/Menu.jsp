@@ -28,45 +28,45 @@
             <div class="row list-group menu-list">
                 <% if( userStatus.equals("student")) { %>
                     <a href="/HelpDesk/ReportProblem" target="_self">
-                        <div class="list-group-item col-md-12">
+                        <button type="button" class="list-group-item col-md-12">
                             รายงานปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
-                        </div>
+                        </button>
                     </a>
                 <% } %>
                 <a href="/HelpDesk/ShowListProblem" target="_self">
-                    <div class="list-group-item col-md-12">
+                    <button type="button" class="list-group-item col-md-12">
                         แสดงรายการแจ้งปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
-                    </div>
+                    </button>
                 </a>
                 <a href="/HelpDesk/ShowListStatus" target="_self">
-                    <div class="list-group-item col-md-12">
+                    <button type="button" class="list-group-item col-md-12">
                         แสดงสถานะปัญหา
                         <img src="assets/img/arrow.png" alt="icon">
-                    </div>
+                    </button>
                 </a>
                 <% if( userStatus.equals("admin")) { %>
                     <a href="/HelpDesk/UpdateStatus1" target="_self">
-                        <div class="list-group-item col-md-12">
+                        <button type="button" class="list-group-item col-md-12">
                             เปลี่ยนแปลงสถานะปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
-                        </div>
+                        </button>
                     </a>
                 <% }
                 if( userStatus.equals("admin")) { %>
                     <a href="/HelpDesk/Summary" target="_self">
-                        <div class="list-group-item col-md-12">
+                        <button type="button" class="list-group-item col-md-12">
                             สรุปปัญหา
                             <img src="assets/img/arrow.png" alt="icon">
-                        </div>
+                        </button>
                     </a>
                 <% } %>
-                <a href="#" target="_self">
-                    <div class="list-group-item col-md-12">
+                <a href="/HelpDesk/ListAnnounce" target="_self">
+                    <button type="button" class="list-group-item col-md-12">
                         ประกาศ
                         <img src="assets/img/arrow.png" alt="icon">
-                    </div>
+                    </button>
                 </a>
             </div>
         </div>
