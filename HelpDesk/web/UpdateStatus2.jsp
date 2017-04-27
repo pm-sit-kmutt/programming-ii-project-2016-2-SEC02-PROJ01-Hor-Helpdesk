@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center">
                     <button type="submit" form="form" class="btn btn-login">Update</button>
-                    <a href="/Helpdesk/UpdateStatus1" target="_self">
+                    <a href="/HelpDesk/UpdateStatus1" target="_self">
                         <button class="btn btn-login" id="back">Back</button>
                     </a>
                 </div>

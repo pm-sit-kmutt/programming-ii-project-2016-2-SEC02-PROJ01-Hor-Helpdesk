@@ -15,9 +15,9 @@ public class UpdateStatus2Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int causeId = Integer.parseInt(request.getParameter("causeId"));
         HttpSession s = request.getSession(true);
-        String cId = causeId+"";
+        String cId = (String)s.getAttribute("causeId");
+        int causeId = Integer.parseInt(cId);
         s.setAttribute("causeId", cId);
         Problem p = Model.Problem.getProblem(causeId);
         String target = "/UpdateStatus2.jsp";
@@ -36,7 +36,6 @@ public class UpdateStatus2Servlet extends HttpServlet {
         HttpSession s = request.getSession(true);
         Problem p = Model.Problem.getProblem(Integer.parseInt((String)s.getAttribute("causeId")));
         p.setStatusId(statusId);
-        s.setAttribute("causeId", "");
         String target = "/UpdateStatus2.jsp";
         
         request.setAttribute("message", p);
