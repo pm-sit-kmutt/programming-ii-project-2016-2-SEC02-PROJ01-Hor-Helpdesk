@@ -99,7 +99,7 @@ public class Problem extends Status {
             int record = ps.executeUpdate();
             ps.close();            
             connect.close();
-            this.setStatus("status",statusId);
+            setStatus(statusId);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -109,7 +109,7 @@ public class Problem extends Status {
     public String getStatus() {
         return status;
     }
-    public void setStatus(String status,int statusId) {
+    public void setStatus(int statusId) {
         this.status = status;
         this.statusId = statusId;
         try {
