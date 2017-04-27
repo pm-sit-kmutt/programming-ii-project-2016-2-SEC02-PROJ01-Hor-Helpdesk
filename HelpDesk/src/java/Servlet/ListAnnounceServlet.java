@@ -14,11 +14,13 @@ public class ListAnnounceServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-        ListAnnounce an = Model.ListAnnounce.getListAnnounce(1);
+        
+        HttpSession s = request.getSession(true);
+        User user = (User)s.getAttribute("user");
+        ListAnnounce listA = Model.ListAnnounce.getListAnnounce(user.getUserId());
         String target = "/AnnounceMenu.jsp";
         
-        request.setAttribute("message", an);
+        request.setAttribute("listAnnounce", listA);
         
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

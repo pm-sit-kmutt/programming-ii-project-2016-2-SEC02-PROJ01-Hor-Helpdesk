@@ -52,3 +52,12 @@ thead tr {
 ul {
     list-style-type: square;
 }
+/*List Announce page*/
+.add {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/*Announce page*/
+.descript {
+    text-indent: 50px;
+}

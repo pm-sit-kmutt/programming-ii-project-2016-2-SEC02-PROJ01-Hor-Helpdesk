@@ -25,22 +25,24 @@ public class ListAnnounce {
             ps.close();
             if(status.equalsIgnoreCase("student")){
                 ps = connect.prepareStatement(
-                    "SELECT User.userId, Room.roomNo, Domitory.dormId, Announce.AnnounceId "
+                    "SELECT User.userId, Room.roomNo, Dormitory.dormId, Announce.AnnounceId, Announce.announceTime "
                     + "FROM User "
                     + "INNER JOIN Renter ON User.userId = Renter.User_userId "
                     + "INNER JOIN Renter_has_Room ON Renter.renterId = Renter_has_Room.Renter_renterId "
                     + "INNER JOIN Room ON Renter_has_Room.Room_roomId = Room.roomId "
-                    + "INNER JOIN Domitory ON Room.Dormitory_dormId = Domitory.dormId "
-                    + "INNER JOIN Announce ON Domitory.dormId = Announce.Domitory_dormId "
-                    + "WHERE User.userId = ? " );
+                    + "INNER JOIN Dormitory ON Room.Dormitory_dormId = Dormitory.dormId "
+                    + "INNER JOIN Announce ON Dormitory.dormId = Announce.Dormitory_dormId "
+                    + "WHERE User.userId = ? "
+                    + "ORDER BY Announce.announceTime DESC" );
             }
             else {
                 ps = connect.prepareStatement(
-                    "SELECT User.userId, Dormitory.dormId, Announce.AnnounceId "
+                    "SELECT User.userId, Dormitory.dormId, Announce.AnnounceId, Announce.announceTime "
                     + "FROM User "
                     + "INNER JOIN Dormitory ON User.userId = Dormitory.User_userId "
                     + "INNER JOIN Announce ON Dormitory.dormId = Announce.Dormitory_dormId "
-                    + "WHERE userId = ? " );
+                    + "WHERE userId = ? "
+                    + "ORDER BY Announce.announceTime DESC" );
             }
             ps.setLong(1,userId);
             result = ps.executeQuery();
