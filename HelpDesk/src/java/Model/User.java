@@ -3,11 +3,12 @@ package Model;
 import java.sql.*;
 
 public class User {
-    private long userId = 0;
+    private long userId;
     private String status;
     private String name;
     
     public User() {
+        userId = 0;
     }
     public User(long userId){
         this.userId = userId;
