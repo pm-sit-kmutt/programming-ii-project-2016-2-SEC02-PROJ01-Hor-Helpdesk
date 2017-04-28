@@ -3,28 +3,26 @@ package Model;
 import java.sql.*;
 
 public class Announce {
-    private int AnnounceId;
-    private String AnnounceTitle;
-    private String AnnounceDes;
-    private String AnnounceTime;
+    private int announceId;
+    private String announceTitle;
+    private String announceDes;
+    private String announceTime;
 
-    public Announce() {
-    }
-    public Announce(int AnnounceId){
-        this.AnnounceId=AnnounceId;
+    public Announce(int announceId){
+        this.announceId = announceId;
         try {
             Connection connect = ConnectionBuilder.getConnection();
             PreparedStatement ps = connect.prepareStatement(
                 "SELECT * "
                 + "FROM Announce "
                 + "WHERE AnnounceId = ? ");
-            ps.setInt(1,AnnounceId);
+            ps.setInt(1,announceId);
             ResultSet result = ps.executeQuery();
             while(result.next()){
-                AnnounceId = result.getInt("AnnounceId");
-                AnnounceTitle = result.getString("announceTitle");
-                AnnounceDes = result.getString("announceDes");
-                AnnounceTime = result.getString("announceTime");
+                announceId = result.getInt("AnnounceId");
+                announceTitle = result.getString("announceTitle");
+                announceDes = result.getString("announceDes");
+                announceTime = result.getString("announceTime");
             }
         }
         catch(SQLException | ClassNotFoundException e) {
@@ -36,36 +34,32 @@ public class Announce {
     }
 
     public int getAnnounceId() {
-        return AnnounceId;
+        return announceId;
     }
     public void setAnnounceId(int AnnounceId) {
-        this.AnnounceId = AnnounceId;
+        this.announceId = AnnounceId;
     }
     public String getAnnounceTitle() {
-        return AnnounceTitle;
+        return announceTitle;
     }
-    public void setAnnounceTitle(String AnnounceTitle) {
-        this.AnnounceTitle = AnnounceTitle;
+    public void setAnnounceTitle(String announceTitle) {
+        this.announceTitle = announceTitle;
     }
     public String getAnnounceDes() {
-        return AnnounceDes;
+        return announceDes;
     }
-    public void setAnnounceDes(String AnnounceDes) {
-        this.AnnounceDes = AnnounceDes;
+    public void setAnnounceDes(String announceDes) {
+        this.announceDes = announceDes;
     }
     public String getAnnounceTime() {
-        return AnnounceTime;
+        return announceTime;
     }
-    public void setAnnounceTime(String AnnounceTime) {
-        this.AnnounceTime = AnnounceTime;
+    public void setAnnounceTime(String announceTime) {
+        this.announceTime = announceTime;
     }
     
-    public static  Announce getAnnounce(){
-        Announce an = new Announce();
-        return an;
-    }
-    public static  Announce getAnnounce(int AnnounceId){
-        Announce an = new Announce(AnnounceId);
+    public static Announce getAnnounce(int announceId){
+        Announce an = new Announce(announceId);
         return an;
     }
 }
