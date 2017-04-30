@@ -39,10 +39,6 @@ public class AnnounceEditServlet extends HttpServlet {
         
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-        System.out.println("-------------------------------------------------------");
-        System.out.println(title);
-        System.out.println(description);
-        System.out.println("-------------------------------------------------------");
         HttpSession s = request.getSession(true);
         String announceId = (String)s.getAttribute("announceId");
         int id = Integer.parseInt(announceId);
