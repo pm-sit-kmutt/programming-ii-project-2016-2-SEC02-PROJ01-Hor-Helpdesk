@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
         <script>
-            function confirmAdd() {
+            function confirmUpdate() {
                 var title = $('#title').val();
                 swal({
                     title: "Are you sure?",
@@ -64,7 +64,7 @@
             </div>
             <div class="row marginUpdate">
                 <div class="col-md-4 col-md-offset-4 text-center">
-                    <button type="button" class="btn btn-login" onclick="confirmAdd()">EDIT</button>
+                    <button type="button" class="btn btn-login" onclick="confirmUpdate()">EDIT</button>
                     <a href="/HelpDesk/Announce" target="_self">
                         <button class="btn btn-login" id="back">Back</button>
                     </a>
