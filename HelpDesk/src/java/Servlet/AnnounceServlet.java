@@ -18,8 +18,8 @@ public class AnnounceServlet extends HttpServlet {
         
         HttpSession s = request.getSession(true);
         String announceId = (String)s.getAttribute("announceId");
-        int aId = Integer.parseInt(announceId);
-        Announce Announce = Model.Announce.getAnnounce(aId);
+        int id = Integer.parseInt(announceId);
+        Announce Announce = Model.Announce.getAnnounce(id);
         String target = "/Announce.jsp";
         
         request.setAttribute("announce", Announce);
@@ -31,11 +31,14 @@ public class AnnounceServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        int id = Integer.parseInt(request.getParameter("id"));
-        Announce Announce = Model.Announce.getAnnounce(id);
+        HttpSession s = request.getSession(true);
+        String announceId = request.getParameter("id");
+        s.setAttribute("announceId", announceId);
+        int id = Integer.parseInt(announceId);
+        Announce announce = Model.Announce.getAnnounce(id);
         String target = "/Announce.jsp";
         
-        request.setAttribute("announce", Announce);
+        request.setAttribute("announce", announce);
         
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

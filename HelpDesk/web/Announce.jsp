@@ -19,7 +19,7 @@
         <% User user = (User)session.getAttribute("user");
         String userStatus = user.getStatus();
         String userName = user.getName();
-        Announce An = (Announce)request.getAttribute("announce");  %>
+        Announce an = (Announce)request.getAttribute("announce"); %>
         <%@include file="Navbar.jsp" %>
         <div class="container">
             <div class="row">
@@ -29,18 +29,18 @@
             </div>
             <div clas="row">
                 <div class="col-md-6 col-md-offset-2">
-                    <h2>หัวข้อ : <%= An.getAnnounceTitle() %></h2>
+                    <h2>หัวข้อ : <%= an.getAnnounceTitle() %></h2>
                 </div>
                 <% if(userStatus.equals("admin")) { %>
                     <div class="col-md-2 text-right add">
-                        <form method="post" action="/HelpDesk/AnnounceEdit">
-                            <button type="submit" class="btn btn-lg btn-login">แก้ไข</button>
-                        </form>
+                        <a href="/HelpDesk/AnnounceEdit">
+                            <button type="button" class="btn btn-lg btn-login">แก้ไข</button>
+                        </a>
                     </div>
                 <% } %>
                 <div class="col-md-8 col-md-offset-2">
                     <h3>คำอธิบาย :</h3>
-                    <p class="descript"><%= An.getAnnounceDes() %></p>
+                    <p class="descript"><%= an.getAnnounceDes() %></p>
                 </div>
             </div>
             <div class="row">

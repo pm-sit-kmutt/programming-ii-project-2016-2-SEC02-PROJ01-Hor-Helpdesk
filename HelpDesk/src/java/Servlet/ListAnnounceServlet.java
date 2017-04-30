@@ -16,6 +16,8 @@ public class ListAnnounceServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession s = request.getSession(true);
+        String announceId = "0";
+        s.setAttribute("announceId", announceId);
         User user = (User)s.getAttribute("user");
         ListAnnounce listA = Model.ListAnnounce.getListAnnounce(user.getUserId());
         String target = "/AnnounceMenu.jsp";
