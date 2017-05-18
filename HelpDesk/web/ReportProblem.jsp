@@ -46,8 +46,8 @@
         ReportProblem reportP = (ReportProblem)request.getAttribute("message");
         ArrayList<Problem> list = reportP.getList(); %>
         <%@include file="Navbar.jsp" %>
-        <form method="post" action="/HelpDesk/ReportProblem" id="form">
-            <div class="container">
+        <div class="container">
+            <form method="post" action="/HelpDesk/ReportProblem" id="form">
                 <div class="row">
                     <div class="col-md-12">
                         <h1>Report Problem</h1>
@@ -101,8 +101,8 @@
                 <div style="display: none;">
                     <input type="text" name="report" id="report">
                 </div>
-                <%@include file="BackButton.jsp" %>
-            </div>
-        </form>
+            </form>
+            <%@include file="BackButton.jsp" %>
+        </div>
     </body>
 </html>
