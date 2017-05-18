@@ -23,8 +23,8 @@
         String userName = user.getName();
         ListProblem listS = (ListProblem)request.getAttribute("message"); %>
         <%@include file="Navbar.jsp" %>
-        <form method="post" action="/HelpDesk/UpdateStatus1">
-            <div class="container">
+        <div class="container">
+            <form method="post" action="/HelpDesk/UpdateStatus1">
                 <div class="row">
                     <div class="col-md-12">
                         <h1>Update Status</h1>
@@ -66,7 +66,7 @@
                     </table>
                 </div>
                 <%@include file="BackButton.jsp" %>
-            </div>
-        </form>
+            </form>
+        </div>
     </body>
 </html>
