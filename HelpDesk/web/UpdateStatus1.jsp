@@ -65,8 +65,8 @@
                         </tbody>
                     </table>
                 </div>
-                <%@include file="BackButton.jsp" %>
             </form>
+            <%@include file="BackButton.jsp" %>
         </div>
     </body>
 </html>
